@@ -1,13 +1,15 @@
+
 import 'package:flutter/material.dart';
+import 'fetchdairy_records.dart';
 import 'sidebar.dart';  // Import the Sidebar widget
 import 'visitors.dart';
 import 'home.dart';
 import 'visitors_table.dart' as visitors_table;
 import 'profile.dart';
-import 'skill.dart';
+import 'dairyScreen.dart';
 import 'SiteBooking.dart';
 import 'settings.dart';
-import 'games.dart' as games;
+import 'package:wereads/NotificationPage.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -27,7 +29,7 @@ class DashboardPage extends StatelessWidget {
               print('Notification Icon Pressed');
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const NotificationPage()),
+                MaterialPageRoute(builder: (context) =>  NotificationPages()),
               );
             },
           ),
@@ -102,7 +104,7 @@ class DashboardPage extends StatelessWidget {
                     icon: Icons.question_mark_outlined,
                     label: 'Enquiry',
                     color: Colors.blueAccent,
-                  ),
+                  ),//AIzaSyAAbCAuT9ZhuDx9cH6_qqdZZTGSgL57Ims
                   DashboardItem(
                     icon: Icons.app_registration_outlined,
                     label: 'Registration',
@@ -214,12 +216,12 @@ class DashboardItem extends StatelessWidget {
             } else if (label == 'Diary') {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const games.GameScreen()),
+                MaterialPageRoute(builder: (context) => const dairyScreen()),
               );
             } else if (label == 'Diary List') {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  SkillScreen()),
+                MaterialPageRoute(builder: (context) =>  fetchdairy_records()),
               );
             } else if (label == 'Site Booking') {
               Navigator.push(
@@ -269,16 +271,3 @@ class DashboardItem extends StatelessWidget {
   }
 }
 
-class NotificationPage extends StatelessWidget {
-  const NotificationPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notifications'),
-      ),
-      body: const Center(child: Text('This is the notification details page')),
-    );
-  }
-}
