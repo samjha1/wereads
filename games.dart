@@ -6,11 +6,11 @@ import 'profile.dart';
 import 'settings.dart';
 
 void main() {
-  runApp(const GameScreen());
+  runApp(const dairyScreen());
 }
 
-class GameScreen extends StatelessWidget {
-  const GameScreen({super.key});
+class dairyScreen extends StatelessWidget {
+  const dairyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _FormPageState extends State<FormPage> {
     });
 
     final response = await http.post(
-      Uri.parse('http://localhost/api/visitors.php'), // Make sure the URL is correct
+      Uri.parse('http://10.0.2.2/api/wereads/visitors1.php'), // Make sure the URL is correct
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
