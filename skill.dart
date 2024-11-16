@@ -5,12 +5,12 @@ import 'profile.dart';
 import 'dashboard_page.dart';
 import 'settings.dart';
 
-class SkillScreen extends StatefulWidget {
+class fetchdairy_records extends StatefulWidget {
   @override
   _SkillScreenState createState() => _SkillScreenState();
 }
 
-class _SkillScreenState extends State<SkillScreen> {
+class _SkillScreenState extends State<fetchdairy_records> {
   late Future<List<dynamic>> diaryData;
 
   @override
@@ -22,7 +22,7 @@ class _SkillScreenState extends State<SkillScreen> {
   // Function to fetch data from the backend
   Future<List<dynamic>> fetchData() async {
     final response =
-        await http.get(Uri.parse('http://localhost/api/fetch_dairy.php'));
+    await http.get(Uri.parse('http://10.0.2.2/api/wereads/fetch_dairy.php'));
 
     if (response.statusCode == 200) {
       // If the server returns a successful response, parse the JSON data
@@ -52,7 +52,7 @@ class _SkillScreenState extends State<SkillScreen> {
             return const Center(
                 child: Text('No records found',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)));
+                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold)));
           } else {
             final diaryRecords = snapshot.data!;
             return ListView.builder(
@@ -127,7 +127,7 @@ class _SkillScreenState extends State<SkillScreen> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const DashboardPage()),
-                  (Route<dynamic> route) => false,
+                      (Route<dynamic> route) => false,
                 );
               },
             ),
