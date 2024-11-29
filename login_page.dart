@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'dashboard_page.dart'; // Ensure this file exists
+import 'front_page.dart'; // Ensure this file exists
 
 void main() {
   runApp(const MyApp());
@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const DashboardPage()),
+        MaterialPageRoute(builder: (context) =>  FrontPage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
